@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3SXREMIT</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-image: url(home.png);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .p {
+      font-size: 50px;
+      padding-left: 100px;
+      padding-top: 30px; /* Reduced padding */
+    }
+
+    .x {
+      padding-left: 100px;
+      font-size: 19px;
+    }
+
+    .btn-yellow {
+      background-color: black;
+      border-color: black;
+      color: yellow;
+      margin-left: 100px;
+      border-radius: 10px;
+      padding-right: 50px;
+    }
+
+    .card-exchange {
+      background: linear-gradient(90deg, #f8e572, #ffffff);
+      border: 1px solid #e3e32f;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: left;
+      max-width: 400px;
+      margin: 30px auto; /* Reduced margin */
+      padding-bottom: 80px;
+    }
+
+    .exchange-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      color: black;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .exchange-group select,
+    .exchange-group input {
+      width: 45%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      text-align: center;
+      margin-right: 40px;
+    }
+
+    .exchange-divider {
+      margin: 10px 0;
+      border-bottom: 1px solid black;
+      width: 300px;
+      margin-left: 40px;
+    }
+
+    .rate-container {
+      text-align: center;
+      font-size: 18px;
+      color: black;
+    }
+
+    .current-rate {
+      font-size: 18px;
+      margin-bottom: 30px;
+      margin-top: 30px;
+    }
+
+    .generate-button {
+      width: 50%;
+      background-color: yellow;
+      color: black;
+      padding: 10px 0;
+      margin-top: 20px;
+      border-radius: 25px;
+      font-size: 18px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .generate-button:hover {
+      background-color: lightblue;
+    }
+
+    .generatebuton {
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 30px; /* Reduced margin */
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+      <img src="bee.png" alt="" style="height: 30ox; width: 30px; border-radius: 10px;">
+      <a class="navbar-brand" href="#">3SXREMIT</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="create.html">Create Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">Faq</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-3"> 
+    <div class="row">
+      <div class="col-md-6">
+        <p class="p"><b>Swift, secure, <br>smooth, and <br>convenient <br>Remittance.</b></p>
+        <p class="x">3SXREMIT ensures that any hidden fees or <br>
+          exchange rates, fast processing time, and high <br>
+          security will be shown. It also allows users to transfer <br>
+          funds internationally at their convenience and <br>
+          comfortably.
+        </p>
+        <a href="login.html" class="btn btn-primary btn-yellow">Send Money</a>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card-exchange">
+          <div class="exchange-group">
+            <input id="amount1" type="text" value="1.00" style="background: none; border: none; color: black; font-weight: bold; font-size: 30px;">
+            <select id="currency1" style="background-color: black;" onchange="updateAmount()">
+              <option value="SGD">SGD</option>
+              <option value="MYR">MYR</option>
+              <option value="USD">USD</option>
+              <option value="AUD">AUD</option>
+            </select>
+          </div>
+          <div class="exchange-divider"></div>
+          <div class="exchange-group">
+            <input id="amount2" type="text" value="3.48" style="background: none; border: none; color: black; font-weight: bold; font-size: 30px;">
+            <select id="currency2" style="background-color: black;" onchange="updateAmount()">
+              <option value="MYR">MYR</option>
+              <option value="SGD">SGD</option>
+              <option value="USD">USD</option>
+              <option value="AUD">AUD</option>
+            </select>
+          </div>
+          <div class="exchange-divider"></div>
+          <div class="rate-container">
+            <div id="rate" class="current-rate">Conversion Rate 1 SGD = 3.48 MYR</div>
+            <div class="exchange-divider"></div>
+          </div>
+          <div class="generatebuton">
+            <a href="login.html" class="generate-button"><b>Send Now</b></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const rates = {
+      SGD: { MYR: 3.48, USD: 0.74, AUD: 0.93 },
+      MYR: { SGD: 0.29, USD: 0.21, AUD: 0.27 },
+      USD: { SGD: 1.35, MYR: 4.19, AUD: 1.24 },
+      AUD: { SGD: 1.07, MYR: 3.38, USD: 0.81 }
+    };
+
+    function updateAmount() {
+      const currency1 = document.getElementById('currency1').value;
+      const currency2 = document.getElementById('currency2').value;
+      const amount1 = parseFloat(document.getElementById('amount1').value);
+
+      if (rates[currency1] && rates[currency1][currency2]) {
+        const rate = rates[currency1][currency2];
+        const amount2 = (amount1 * rate).toFixed(2);
+
+        document.getElementById('amount2').value = amount2;
+        document.getElementById('rate').textContent = `Conversion Rate 1 ${currency1} = ${rate} ${currency2}`;
+      }
+    }
+
+    document.getElementById('currency1').addEventListener('change', updateAmount);
+    document.getElementById('currency2').addEventListener('change', updateAmount);
+    document.getElementById('amount1').addEventListener('input', updateAmount);
+  </script>
+</body>
+
+</html>
